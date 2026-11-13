@@ -1,0 +1,361 @@
+{
+  "dataset": {
+    "n_rows": 50000,
+    "n_columns": 41,
+    "missing_cells": 20810,
+    "rows_with_missing": 17321,
+    "class_counts": {
+      "Low": 470,
+      "Moderate": 12937,
+      "High": 36593
+    },
+    "class_prevalences": {
+      "Low": 0.0094,
+      "Moderate": 0.25874,
+      "High": 0.73186
+    },
+    "missing_by_column": {
+      "Age": 497,
+      "Height_cm": 2945,
+      "Weight_kg": 2962,
+      "Blood_Glucose": 959,
+      "HbA1c": 1974,
+      "Total_Cholesterol": 1000,
+      "HDL": 1000,
+      "LDL": 1000,
+      "Triglycerides": 1000,
+      "Physical_Activity_Level": 500,
+      "Exercise_Hours_Per_Week": 1992,
+      "Daily_Walking_Minutes": 1964,
+      "Sleep_Hours": 2017,
+      "Medication_Adherence": 1000
+    },
+    "target_score_intervals": {
+      "High": {
+        "min": 65,
+        "max": 100
+      },
+      "Low": {
+        "min": 13,
+        "max": 34
+      },
+      "Moderate": {
+        "min": 35,
+        "max": 64
+      }
+    },
+    "all_scores_unique_class": true,
+    "duplicate_rows_excluding_id": 0
+  },
+  "protocol": {
+    "random_state": 42,
+    "train_n": 30000,
+    "val_n": 10000,
+    "test_n": 10000,
+    "density_train_n": 8000,
+    "features_full_count": 36,
+    "excluded_columns": [
+      "Patient_ID",
+      "Diabetes_Risk_Score",
+      "AI_Health_Recommendation",
+      "Doctor_Consultation_Needed",
+      "Diabetes_Risk"
+    ],
+    "train_prev": 0.7318666666666667,
+    "test_prev": 0.7318,
+    "tuning_target": "validation ROC-AUC",
+    "threshold_rule": "lowest false-positive rate on validation with High-risk recall >=0.90"
+  },
+  "kde_selection": {
+    "3d": {
+      "features": [
+        "Age",
+        "HbA1c",
+        "Fasting_Blood_Sugar"
+      ],
+      "bandwidth": 0.35,
+      "validation_auc": 0.8547330913663829,
+      "train_density_size": 8000,
+      "class_prior": [
+        0.268125,
+        0.731875
+      ]
+    },
+    "6d": {
+      "features": [
+        "Age",
+        "BMI",
+        "HbA1c",
+        "Fasting_Blood_Sugar",
+        "Blood_Pressure_Systolic",
+        "Sleep_Hours"
+      ],
+      "bandwidth": 1.0,
+      "validation_auc": 0.8528526739481668,
+      "train_density_size": 8000,
+      "class_prior": [
+        0.268125,
+        0.731875
+      ]
+    }
+  },
+  "tuning": [
+    {
+      "feature_set": "3d",
+      "dimension": 3,
+      "bandwidth": 0.35,
+      "validation_roc_auc": 0.8547330913663829,
+      "validation_pr_auc": 0.9357602944822765
+    },
+    {
+      "feature_set": "3d",
+      "dimension": 3,
+      "bandwidth": 0.6,
+      "validation_roc_auc": 0.8482123778025537,
+      "validation_pr_auc": 0.9325940997695171
+    },
+    {
+      "feature_set": "3d",
+      "dimension": 3,
+      "bandwidth": 1.0,
+      "validation_roc_auc": 0.8370852072487752,
+      "validation_pr_auc": 0.9269727668417125
+    },
+    {
+      "feature_set": "3d",
+      "dimension": 3,
+      "bandwidth": 1.5,
+      "validation_roc_auc": 0.8284530628742215,
+      "validation_pr_auc": 0.9222867515418094
+    },
+    {
+      "feature_set": "6d",
+      "dimension": 6,
+      "bandwidth": 0.35,
+      "validation_roc_auc": 0.8297205023341119,
+      "validation_pr_auc": 0.9187853865937533
+    },
+    {
+      "feature_set": "6d",
+      "dimension": 6,
+      "bandwidth": 0.6,
+      "validation_roc_auc": 0.8474240375932633,
+      "validation_pr_auc": 0.9260425737190294
+    },
+    {
+      "feature_set": "6d",
+      "dimension": 6,
+      "bandwidth": 1.0,
+      "validation_roc_auc": 0.8528526739481668,
+      "validation_pr_auc": 0.9359444634984733
+    },
+    {
+      "feature_set": "6d",
+      "dimension": 6,
+      "bandwidth": 1.5,
+      "validation_roc_auc": 0.795664093175096,
+      "validation_pr_auc": 0.9005952317136184
+    }
+  ],
+  "metrics": {
+    "majority_high_test": {
+      "n": 10000,
+      "accuracy": 0.7318,
+      "balanced_accuracy": 0.5,
+      "precision_high": 0.7318,
+      "recall_high": 1.0,
+      "specificity_other": 0.0,
+      "f1_high": 0.8451322323593948,
+      "roc_auc": 0.5,
+      "pr_auc": 0.7318,
+      "threshold": 0.5,
+      "confusion_matrix": [
+        [
+          0,
+          2682
+        ],
+        [
+          0,
+          7318
+        ]
+      ]
+    },
+    "logistic_all_36_test": {
+      "n": 10000,
+      "accuracy": 0.8918,
+      "balanced_accuracy": 0.8502503404005813,
+      "precision_high": 0.9146276595744681,
+      "recall_high": 0.9398742825908718,
+      "specificity_other": 0.7606263982102909,
+      "f1_high": 0.9270791211753605,
+      "roc_auc": 0.9531023174549023,
+      "pr_auc": 0.9825251843707197,
+      "threshold": 0.5,
+      "confusion_matrix": [
+        [
+          2040,
+          642
+        ],
+        [
+          440,
+          6878
+        ]
+      ]
+    },
+    "logistic_all_36_recall90_test": {
+      "n": 10000,
+      "accuracy": 0.8827,
+      "balanced_accuracy": 0.862575022127821,
+      "precision_high": 0.9318341531974701,
+      "recall_high": 0.9059852418693632,
+      "specificity_other": 0.8191648023862789,
+      "f1_high": 0.9187279151943463,
+      "roc_auc": 0.9531023174549023,
+      "pr_auc": 0.9825251843707197,
+      "threshold": 0.6285763546590161,
+      "confusion_matrix": [
+        [
+          2197,
+          485
+        ],
+        [
+          688,
+          6630
+        ]
+      ]
+    },
+    "logistic_6d_test": {
+      "n": 10000,
+      "accuracy": 0.8116,
+      "balanced_accuracy": 0.7248281387216182,
+      "precision_high": 0.8433156431640132,
+      "recall_high": 0.911997813610276,
+      "specificity_other": 0.5376584638329605,
+      "f1_high": 0.876313025210084,
+      "roc_auc": 0.8532341570813409,
+      "pr_auc": 0.9376546891177465,
+      "threshold": 0.5,
+      "confusion_matrix": [
+        [
+          1442,
+          1240
+        ],
+        [
+          644,
+          6674
+        ]
+      ]
+    },
+    "logistic_3d_test": {
+      "n": 10000,
+      "accuracy": 0.7984,
+      "balanced_accuracy": 0.6976213636851836,
+      "precision_high": 0.8276885043263288,
+      "recall_high": 0.9150040994807325,
+      "specificity_other": 0.4802386278896346,
+      "f1_high": 0.8691588785046729,
+      "roc_auc": 0.8286913057381115,
+      "pr_auc": 0.9249483758689966,
+      "threshold": 0.5,
+      "confusion_matrix": [
+        [
+          1288,
+          1394
+        ],
+        [
+          622,
+          6696
+        ]
+      ]
+    },
+    "KDE_3d_test": {
+      "n": 10000,
+      "accuracy": 0.8184,
+      "balanced_accuracy": 0.7150656069768822,
+      "precision_high": 0.8344274252370533,
+      "recall_high": 0.9379611915823995,
+      "specificity_other": 0.49217002237136465,
+      "f1_high": 0.883170355120947,
+      "roc_auc": 0.8657872246199548,
+      "pr_auc": 0.9425998449819185,
+      "threshold": 0.5,
+      "confusion_matrix": [
+        [
+          1320,
+          1362
+        ],
+        [
+          454,
+          6864
+        ]
+      ]
+    },
+    "KDE_3d_recall90_test": {
+      "n": 10000,
+      "accuracy": 0.8195,
+      "balanced_accuracy": 0.7421542277028703,
+      "precision_high": 0.8538056732126813,
+      "recall_high": 0.9089915277398196,
+      "specificity_other": 0.5753169276659209,
+      "f1_high": 0.8805347805943478,
+      "roc_auc": 0.8657872246199548,
+      "pr_auc": 0.9425998449819185,
+      "threshold": 0.5604648475874734,
+      "confusion_matrix": [
+        [
+          1543,
+          1139
+        ],
+        [
+          666,
+          6652
+        ]
+      ]
+    },
+    "KDE_6d_test": {
+      "n": 10000,
+      "accuracy": 0.7318,
+      "balanced_accuracy": 0.5,
+      "precision_high": 0.7318,
+      "recall_high": 1.0,
+      "specificity_other": 0.0,
+      "f1_high": 0.8451322323593948,
+      "roc_auc": 0.8581127735254455,
+      "pr_auc": 0.9389538141159943,
+      "threshold": 0.5,
+      "confusion_matrix": [
+        [
+          0,
+          2682
+        ],
+        [
+          0,
+          7318
+        ]
+      ]
+    },
+    "KDE_6d_recall90_test": {
+      "n": 10000,
+      "accuracy": 0.8112,
+      "balanced_accuracy": 0.7374281062355517,
+      "precision_high": 0.8529641185647426,
+      "recall_high": 0.8965564361847499,
+      "specificity_other": 0.5782997762863534,
+      "f1_high": 0.8742171885409726,
+      "roc_auc": 0.8581127735254455,
+      "pr_auc": 0.9389538141159943,
+      "threshold": 0.72057399179213,
+      "confusion_matrix": [
+        [
+          1551,
+          1131
+        ],
+        [
+          757,
+          6561
+        ]
+      ]
+    }
+  },
+  "runtime_sec": 17.40353512763977
+}

@@ -1,0 +1,126 @@
+{
+  "status": "validation_experiment",
+  "test_set_used": false,
+  "methods": {
+    "3D": {
+      "fixed": {
+        "auc": 0.8565900008155941,
+        "ap_high": 0.9367610574963109,
+        "ap_non_high": 0.7087893237162656,
+        "brier": 0.13007382652086527,
+        "log_loss": 0.40678164977449577,
+        "specificity_050": 0.48208955223880595,
+        "recall_high_050": 0.9316939890710383,
+        "confusion_matrix": [
+          [
+            323,
+            347
+          ],
+          [
+            125,
+            1705
+          ]
+        ]
+      },
+      "adaptive": {
+        "auc": 0.8553690563575564,
+        "ap_high": 0.9350153752417119,
+        "ap_non_high": 0.7086578989992873,
+        "brier": 0.12949043630053772,
+        "log_loss": 0.40553857352764716,
+        "specificity_050": 0.49850746268656715,
+        "recall_high_050": 0.928415300546448,
+        "confusion_matrix": [
+          [
+            334,
+            336
+          ],
+          [
+            131,
+            1699
+          ]
+        ]
+      },
+      "class_aware": {
+        "auc": 0.8488850827828072,
+        "ap_high": 0.9317260768395724,
+        "ap_non_high": 0.6949814552072111,
+        "brier": 0.13555571437074604,
+        "log_loss": 0.4211288516211939,
+        "specificity_050": 0.3686567164179104,
+        "recall_high_050": 0.9590163934426229,
+        "confusion_matrix": [
+          [
+            247,
+            423
+          ],
+          [
+            75,
+            1755
+          ]
+        ]
+      }
+    },
+    "6D": {
+      "fixed": {
+        "auc": 0.8767490416768615,
+        "ap_high": 0.948246626397163,
+        "ap_non_high": 0.737285146012757,
+        "brier": 0.1209327598216019,
+        "log_loss": 0.3805196176416006,
+        "specificity_050": 0.5432835820895522,
+        "recall_high_050": 0.9311475409836065,
+        "confusion_matrix": [
+          [
+            364,
+            306
+          ],
+          [
+            126,
+            1704
+          ]
+        ]
+      },
+      "adaptive": {
+        "auc": 0.8793157164994698,
+        "ap_high": 0.9491845016005754,
+        "ap_non_high": 0.7432573173129446,
+        "brier": 0.11939650582878503,
+        "log_loss": 0.37621919787252234,
+        "specificity_050": 0.5462686567164179,
+        "recall_high_050": 0.9327868852459016,
+        "confusion_matrix": [
+          [
+            366,
+            304
+          ],
+          [
+            123,
+            1707
+          ]
+        ]
+      },
+      "class_aware": {
+        "auc": 0.8756504363428758,
+        "ap_high": 0.9462574837430346,
+        "ap_non_high": 0.7377205425605508,
+        "brier": 0.1285020677334226,
+        "log_loss": 0.3989496884121683,
+        "specificity_050": 0.3641791044776119,
+        "recall_high_050": 0.973224043715847,
+        "confusion_matrix": [
+          [
+            244,
+            426
+          ],
+          [
+            49,
+            1781
+          ]
+        ]
+      }
+    }
+  },
+  "notes": "Validation is also used to choose parameters; performance is exploratory, not independent generalization evidence.",
+  "elapsed_seconds": 2.23
+}
